@@ -1,0 +1,185 @@
+<div class="row" ng-if="vm.loading">
+  <div class="panel-body">
+    <div class="sk-spinner sk-spinner-three-bounce">
+      <div class="sk-bounce1"></div>
+      <div class="sk-bounce2"></div>
+      <div class="sk-bounce3"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper wrapper-content gray-bg" print-section ng-if="!vm.loading">
+  <div class="row m-b-lg m-t-lg">
+    <div class="col-md-6">
+      <div class="profile-image">
+        <img ng-src="{{vm.profile.profileImages.profile}}" class="img-circle circle-border m-b-md" alt="profile">
+      </div>
+      <div class="profile-info">
+        <div class="">
+          <div>
+            <h2 class="no-margins">
+              {{vm.profile.firstname}} {{vm.profile.lastname}}
+            </h2>
+            <h1>{{vm.profile.status}}</h1>
+            <small>{{vm.profile.birthday | ageFilter}} ans,
+            {{vm.profile.story}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <div ng-repeat="social in vm.profile.socials track by $index">
+          <div class="col-xs-1" ng-if="social.name">
+            <a class="btn btn-white" ng-href="{{social.url}}" target="_blank"><i ng-bind-html="social.icon"></i></a>
+          </div>
+        </div>
+      </div>
+      <small>{{vm.profile.socials.text}}</small>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-md-3">
+      <div class="ibox" print-avoid-break>
+        <div class="ibox-title">
+          <h3>Contact</h3>
+        </div>
+        <div class="ibox-content">
+          <p>
+            {{vm.profile.mail}}
+          </p>
+          <p>
+            {{vm.profile.phone}}
+          </p>
+          <p>
+            {{vm.profile.address}}
+            <br> {{vm.profile.postcode}} {{vm.profile.city}}
+          </p>
+        </div>
+      </div>
+
+      <div class="ibox" print-avoid-break>
+        <div class="ibox-title">
+          <h3>Formations</h3>
+        </div>
+        <div class="ibox-content">
+          <ul class="list-unstyled">
+            <li ng-repeat="(key, value) in vm.profile.formations track by $index">
+              <i class="fa fa-graduation-cap"></i><strong>{{key}}</strong> {{value}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="ibox" print-avoid-break>
+        <div class="ibox-title">
+          <h3>Langues</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <div ng-repeat="language in vm.profile.languages track by $index">
+              <div class="col-xs-6">
+                <h4>{{language.name}}</h4>
+                {{language.text}}
+              </div>
+              <div class="col-xs-6">
+                <ui-knob value="language.value" options="vm.options"></ui-knob>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox" print-avoid-break>
+        <div class="ibox-content">
+          <div class="row">
+            <div ng-repeat="skill in vm.profile.skills track by $index">
+              <div class="col-xs-6">
+                <h4>{{skill.name}}</h4>
+              </div>
+              <div class="col-xs-6">
+                <ui-knob value="skill.value" options="vm.options"></ui-knob>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-5 m-b-lg">
+      <div id="vertical-timeline" class="vertical-container light-timeline no-margins" print-avoid-break>
+        <div class="vertical-timeline-block" ng-repeat="xp in vm.profile.experiences ">
+          <div class="vertical-timeline-icon" ng-class="xp.bgClass">
+          </div>
+
+          <div class="vertical-timeline-content">
+            <h2>{{xp.status}} @ {{xp.company}}</h2>
+            <ul>
+              <li ng-repeat="mission in xp.missions track by $index">
+                {{mission}}
+              </li>
+            </ul>
+            <p>
+              <span class="badge" ng-repeat="env in xp.environment track by $index"> {{env}} </span>
+            </p>
+            <span class="vertical-date">
+                <small>
+                  de {{xp.startDate}} à {{xp.endDate}}
+                </small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row">
+            <div ng-repeat="code in vm.profile.codes track by $index">
+              <div class="col-xs-2">
+                <h4>{{code.name}}</h4>
+              </div>
+              <div class="col-xs-4">
+                <ui-knob value="code.value" options="vm.options"></ui-knob>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox" print-avoid-break>
+        <div class="ibox-title">
+          <h3>Technos en vrac</h3>
+          <p>{{vm.profile.codeText}}</p>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <span ng-repeat="(key, value) in vm.profile.more">
+            <span class="col-xs-2"><h1 ng-bind-html="value" tooltip-placement="top" uib-tooltip="{{key}}"></h1></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ibox" ng-if="vm.profile.slides" print-remove>
+        <div class="ibox-title">
+          <h3>Dernières réalisations</h3>
+        </div>
+        <div class="ibox-content">
+          <div class="row">
+            <uib-carousel interval="vm.interval" active="vm.activeSlide">
+              <uib-slide ng-repeat="slide in vm.profile.slides" index="$index">
+                <img ng-src="{{slide.imageUrl}}" style="margin:auto;">
+</uib-slide>
+</uib-carousel>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>

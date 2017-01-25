@@ -1,0 +1,63 @@
+// Width variables (appears count calculates by raw css)
+@width1: 200px; // Appears 2 times
+
+// Main colors
+@background-drop-zone: #ED5565;
+@font-color-drop-zone: #000000;
+
+.features {
+	float: right;
+	padding-left: 20px;
+	width: 300px;
+	.heading {
+		font-size: 14px;
+		font-weight: bold;
+	}
+}
+.drop {
+	border-radius: 5px;
+	border: 2px #f1f1f1 dashed;
+	line-height: 34px;
+	padding: 15px;
+}
+.drop.drag-over {
+	background: @background-drop-zone;
+  color: @font-color-drop-zone;
+}
+.transfer-box {
+	margin-bottom: 5px;
+	.progress {
+		margin-bottom: 0;
+	}
+}
+.thumbnail {
+	line-height: 20px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	word-break: normal;
+	img {
+		max-height: 150px;
+		max-width: @width1;
+	}
+}
+.gallery-box {
+	border: 1px solid #dddddd;
+	float: left;
+	margin: 7px;
+	min-height: 200px;
+	overflow: hidden;
+	padding: 5px;
+	width: @width1;
+	.progress {
+		margin-bottom: 0;
+	}
+	.thumbnail {
+		height: 188px;
+		width: 188px;
+	}
+	.title {
+		display: block;
+		height: 22px;
+		overflow: hidden;
+	}
+}

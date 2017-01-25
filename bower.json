@@ -1,0 +1,118 @@
+{
+  "name": "mbc",
+  "version": "2.5.0",
+  "dependencies": {
+    "angular-animate": "~1.5.0",
+    "angular-cookies": "~1.5.0",
+    "angular-touch": "~1.5.0",
+    "angular-sanitize": "~1.5.0",
+    "angular-messages": "~1.5.0",
+    "angular-aria": "~1.5.0",
+    "jquery": "~2.1.4",
+    "angular-resource": "~1.5.0",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6",
+    "angular-bootstrap": "~1.1.2",
+    "moment": "~2.10.6",
+    "animate.css": "~3.4.0",
+    "angular": "~1.5.0",
+    "pace": "~1.0.2",
+    "metisMenu": "~2.0.2",
+    "fontawesome": "~4.5.0",
+    "angular-translate": "^2.11.0",
+    "angular-csv-import-tmp": "angular-csv-import#^0.0.29",
+    "angular-ladda": "^0.3.4",
+    "angular-chosen-localytics": "^1.4.2",
+    "angular-toastr": "^1.7.0",
+    "angular-datatables": "^0.5.4",
+    "textAngular": "^1.5.2",
+    "ng-flow": "^2.7.4",
+    "firebase": "^3.5.0",
+    "angularfire": "^2.0.1",
+    "rx-angular": "angular-rx#^1.1.3",
+    "sweetalert": "^1.1.3",
+    "angular-ui-select": "^0.19.1",
+    "angular-password": "^1.0.1",
+    "angular-truncate-2": "^0.4.2",
+    "angular-input-masks": "^2.4.0",
+    "jquery.steps": "^1.1.0",
+    "angularPrint": "angular-print#^0.3.8",
+    "angular-io-barcode": "^1.0.4",
+    "angular-footable": "^1.0.3",
+    "papaparse": "^4.1.2",
+    "angular-file-saver": "^1.1.2",
+    "ng-lodash": "^0.5.0",
+    "angular-ui-sortable": "^0.14.3",
+    "angular-moment": "^1.0.0",
+    "Flot": "flot#^0.8.3",
+    "angular-flot": "^0.0.16",
+    "angular-tinycon": "tinycon-angularjs#^1.1.2",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-i18n": "^1.5.8",
+    "angular-x2js": "^0.2.0",
+    "angular-slick": "^0.2.1",
+    "angular-masonry": "^0.16.0",
+    "ngInfiniteScroll": "1.0.0",
+    "angular-ui-switch": "0.1.1",
+    "angular-daterangepicker": "^0.2.2",
+    "angular-ui-select2": "^0.0.5",
+    "ng-knob": "^0.1.3"
+  },
+  "devDependencies": {
+    "angular-mocks": "1.5.8"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "less/bootstrap.less",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "fontawesome": {
+      "main": [
+        "less/font-awesome.less",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    },
+    "ev-emitter": {
+      "dependencies": {
+        "jquery-bridget": "~2.0.0"
+      }
+    },
+    "outlayer": {
+      "main": [
+        "item.js",
+        "outlayer.js"
+      ]
+    },
+    "footable": {
+      "main": [
+        "js/footable.js",
+        "js/footable.filter.js",
+        "js/footable.grid.js",
+        "js/footable.paginate.js",
+        "js/footable.sort.js",
+        "js/footable.striping.js",
+        "js/footable.memory.js",
+        "css/footable.core.css",
+        "css/fonts/footable.eot",
+        "css/fonts/footable.svg",
+        "css/fonts/footable.ttf",
+        "css/fonts/footable.woff"
+      ]
+    }
+  },
+  "resolutions": {
+    "jquery": "2.1.4",
+    "angular": "1.5.8",
+    "angular-moment": "^1.0.0"
+  }
+}

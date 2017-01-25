@@ -1,0 +1,121 @@
+
+/* --------------------------------
+
+Main Components
+
+-------------------------------- */
+.cd-brand{
+  margin-bottom: 6em;
+  padding: 10px 10px 10px 10px;
+  margin: 10px auto 70px auto;
+  width: 90%;
+}
+
+.cd-brand .cd-item-info-2 {
+  text-align: center;
+  display:block;
+  width:100%;
+  font-weight: bold;
+  display: block;
+  text-transform: uppercase;
+  font-size:1em;
+}
+
+.cd-item-info-2 h3 a {
+  color: #e8455e !important;
+}
+
+.box {
+    position: relative;
+}
+
+.box::before,
+.box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.box::after {
+    border-width: 2.2em;
+    border-right-color: #e8455e;
+    border-top-color: #e8455e;
+}
+.box span{
+  position:absolute;
+  right:7px;
+  top:5px;
+  color:#ffffff;
+  z-index:1;
+  font-size:2rem;
+  font-weight: bold;
+}
+
+/* RIG Grid */
+
+ul.rig {
+	list-style: none;
+	font-size: 0px;
+	margin-left: -2.5%; /* should match li left margin */
+}
+ul.rig li {
+	display: inline-block;
+	padding: 10px;
+	margin: 0 0 2.5% 2.5%;
+	font-size: 16px;
+	font-size: 1.5rem;
+	vertical-align: top;
+  border-radius: .25em;
+  background: #fff;
+  border: 1px solid @border-color;
+}
+ul.rig li img {
+	max-width: 100%;
+	height: auto;
+  margin: 0 auto;
+  display: block;
+}
+ul.rig li h3 {
+	margin: 0 0 5px;
+  text-transform: uppercase;
+  text-align:center;
+  font-weight: bold;
+}
+ul.rig li p {
+	line-height: 1.1em;
+	color: #848484;
+  text-align:center;
+  font-size:1.3rem;
+}
+/* class for 2 columns */
+ul.rig.columns-2 li {
+	width: 47.5%; /* this value + 2.5 should = 50% */
+}
+/* class for 3 columns */
+ul.rig.columns-3 li {
+  width: 30.83%; /* this value + 2.5 should = 33% */
+}
+/* class for 4 columns */
+ul.rig.columns-4 li {
+	width: 22.5%; /* this value + 2.5 should = 25% */
+}
+
+@media (max-width: 480px) {
+	ul.grid-nav li {
+		display: block;
+		margin: 0 0 5px;
+	}
+	ul.grid-nav li a {
+		display: block;
+	}
+	ul.rig {
+		margin-left: 0;
+	}
+	ul.rig li {
+		width: 100% !important; /* over-ride all li styles */
+		margin: 0 0 20px;
+	}
+}

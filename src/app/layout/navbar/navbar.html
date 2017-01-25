@@ -1,0 +1,113 @@
+<div class="row">
+  <nav class="navbar white-bg navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <button aria-controls="navbar" aria-expanded="false" class="navbar-toggle" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed"
+        type="button">
+        <i class="fa fa-reorder"></i>
+      </button>
+      <a ui-sref="index.product" class="navbar-brand">
+        <image src="\assets\images\logo_login.png">
+      </a>
+    </div>
+    <div class="navbar-collapse" id="navbar" ng-class="{collapse: isCollapsed}">
+      <ul class="nav navbar-nav">
+        <li ui-sref-active="active" ng-click="isCollapsed = !isCollapsed">
+          <a ui-sref="index.dashboard">Tableau de bord</a>
+        </li>
+        <li ui-sref-active="active" ng-click="isCollapsed = !isCollapsed">
+          <a ui-sref="index.product">Catalogue produits</a>
+        </li>
+        <!--<li ui-sref-active="active" ng-click="isCollapsed = !isCollapsed">
+          <a ui-sref="index.refill">Espaces</a>
+        </li>-->
+        <li ui-sref-active="active" ng-click="isCollapsed = !isCollapsed">
+          <a ui-sref="index.basket">Demandes en cours</a>
+        </li>
+        <li ui-sref-active="active" ng-click="isCollapsed = !isCollapsed">
+          <a ui-sref="index.stock">Mes stocks</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-top-links navbar-right">
+        <li uib-dropdown on-toggle="vm.markAsRead(open)">
+          <a class="count-info" href uib-dropdown-toggle>
+            <i class="fa fa-bell"></i> <span class="label label-primary">1</span>
+          </a>
+          <ul class="dropdown-alerts" uib-dropdown-menu ng-click="isCollapsed = !isCollapsed">
+            <li ng-if="!vm.group.sale && !vm.group.receive && !vm.group.stock && !vm.group.review">
+              <a>Vous n'avez pas encore reçu de notifications</a>
+            </li>
+            <li ng-repeat="(key, group) in vm.group">
+              <a ui-sref="index.notification">
+                <div ng-if="key === 'sale'">
+                  <i class="fa fa-eur sale"></i>
+                  <span ng-if="vm.unreadGroup[key].length > 1">{{vm.unreadGroup[key].length}} Nouvelles ventes</span>
+                  <span ng-if="vm.unreadGroup[key].length === 1">{{vm.unreadGroup[key].length}} Nouvelle vente</span>
+                  <span ng-if="!vm.unreadGroup[key]">Pas de nouvelle vente</span>
+                </div>
+                <div ng-if="key === 'stock'">
+                  <i class="fa fa-truck stock"></i>
+                  <span ng-if="vm.unreadGroup[key].length > 1">{{vm.unreadGroup[key].length}} Nouvelles alertes de stock</span>
+                  <span ng-if="vm.unreadGroup[key].length === 1">{{vm.unreadGroup[key].length}} Nouvelle alerte de stock</span>
+                  <span ng-if="!vm.unreadGroup[key]">Pas de nouvelle alerte de stock</span>
+                </div>
+                <div ng-if="key === 'receive'">
+                  <i class="fa fa-arrow-down receive"></i>
+                  <span ng-if="vm.unreadGroup[key].length > 1">{{vm.unreadGroup[key].length}} Nouvelles réceptions</span>
+                  <span ng-if="vm.unreadGroup[key].length === 1">{{vm.unreadGroup[key].length}} Nouvelle réception</span>
+                  <span ng-if="!vm.unreadGroup[key]">Pas de nouvelle réception</span>
+                </div>
+                <div ng-if="key === 'review'">
+                  <i class="fa fa-comment review"></i>
+                  <span ng-if="vm.unreadGroup[key].length > 1">{{vm.unreadGroup[key].length}} Nouveaux commentaires</span>
+                  <span ng-if="vm.unreadGroup[key].length === 1">{{vm.unreadGroup[key].length}} Nouveau commentaire</span>
+                  <span ng-if="!vm.unreadGroup[key]">Pas de nouveau commentaire</span>
+                </div>
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <div class="text-center link-block">
+                <a ui-sref="index.notification">
+                  <strong>Afficher tout </strong>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        <li uib-dropdown ng-if="vm.isLoggedIn()">
+          <a class="count-info" href uib-dropdown-toggle>
+            <i class="fa fa-caret-down"></i>{{vm.currentUser().email}}
+          </a>
+          <ul uib-dropdown-menu class="m-t-xs">
+            <li>
+              <a ui-sref="index.profile">
+                <i class="fa fa-user"></i> {{'NAVBAR_ACCOUNT' | translate}}
+              </a>
+            </li>
+            <li>
+              <a ui-sref="index.payment">
+                <i class="fa fa-credit-card"></i> Facturation
+              </a>
+            </li>
+            <!--<li ng-if="vm.profile.admin">
+              <a ui-sref="index.admin">
+                <i class="fa fa-lock"></i> {{'NAVBAR_ADMIN' | translate}}
+              </a>
+            </li>-->
+            <li>
+              <a ng-click="vm.logout()">
+                <i class="fa fa-sign-out"></i> {{'NAVBAR_LOGOUT' | translate}}
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li ng-if="!vm.isLoggedIn()">
+          <a ui-sref="login">
+            <i class="fa fa-sign-out"></i> {{'NAVBAR_LOGIN' | translate}}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

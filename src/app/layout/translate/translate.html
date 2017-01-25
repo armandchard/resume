@@ -1,0 +1,7 @@
+<li uib-dropdown>
+  <a class="count-info" href uib-dropdown-toggle>{{ 'TRANSLATE_LANGUAGE' | translate }}</a>
+  <ul uib-dropdown-menu class="m-t-xs">
+    <li><a ng-click="vm.changeLanguage('fr')">{{ 'TRANSLATE_FRENCH' | translate }}</a></li>
+    <li><a ng-click="vm.changeLanguage('en')">{{ 'TRANSLATE_ENGLISH' | translate }}</a></li>
+  </ul>
+</li>

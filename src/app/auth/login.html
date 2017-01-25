@@ -1,0 +1,28 @@
+<div class="middle-box text-center loginscreen  animated fadeInDown">
+  <div>
+     <img src="/assets/images/logo_login.png" width="300">
+
+    <form class="m-t" role="form" ng-submit="vm.login(user)">
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email" required="" ng-model="user.email">
+        <div class="text-danger" ng-show="form.username.$error.email">This is not a valid email.</div>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="{{'LOGIN_PASSWORD' | translate}}" ng-model="user.password">
+      </div>
+      <button type="submit" class="btn btn-primary block full-width m-b">{{'LOGIN_LOGIN' | translate}}</button>
+
+      <a ui-sref="forgot">
+        <small>{{'LOGIN_FORGOTPASSWORD' | translate}}</small>
+      </a>
+
+      <!--<p class="text-muted text-center">
+            <small>Do not have an account?</small>
+          </p>
+          <a class="btn btn-sm btn-white btn-block" ui-sref="register">Create an account</a>-->
+    </form>
+    <div ng-show="vm.error" class="alert alert-danger">{{vm.error.message}}</div>
+    <div ng-show="vm.success" class="alert alert-success">{{vm.success.message}}</div>
+    <p class="m-t"> <small>Made with <i class="fa fa-heart" aria-hidden="true"></i> by <strong>My Pop Corner</strong> &copy; 2017</small> </p>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- Wrapper-->
+<div id="wrapper" class="top-navigation">
+
+  <!-- Navigation -->
+  <!--<div ng-include="'app/components/common/navigation.html'"></div>-->
+  <!--<gz-navbar></gz-navbar>-->
+  <!-- Page wraper -->
+  <!-- ng-class with current state name give you the ability to extended customization your view -->
+  <div id="page-wrapper" class="gray-bg {{$state.current.name}}">
+
+    <!-- Page wrapper -->
+    <!--<div ng-include="'app/components/common/topnavbar.html'"></div>-->
+
+    <!-- Main view  -->
+    <div ng-if="$state.current.name !== 'index'" ui-view></div>
+    <div ng-if="vm.show" class="wrapper-content">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="ibox">
+            <div class="ibox-content text-center">
+              <div class="row">
+                <div class="col-md-3" ng-repeat="brand in vm.brands">
+                  <div class="ibox">
+                    <div class="ibox-content product-box" ui-sref="index.brand({id:brand.id})" ng-click="vm.hide()">
+                      <h2>{{brand.name}}</h2>
+                    </div>
+                    <div>{{brand.id}}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <!--<div ng-include="'app/components/common/footer.html'"></div>-->
+
+  </div>
+  <!-- End page wrapper-->
+
+</div>
+<!-- End wrapper-->
