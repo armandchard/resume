@@ -9,7 +9,7 @@
 </div>
 <div class="wrapper wrapper-content gray-bg" print-section ng-if="!vm.loading">
   <div class="row m-b-lg m-t-lg">
-    <div class="col-md-6">
+    <div class="col-sm-6">
       <div class="profile-image">
         <img ng-src="{{vm.profile.profileImages.profile}}" class="img-circle circle-border m-b-md" alt="profile">
       </div>
@@ -20,20 +20,20 @@
               {{vm.profile.firstname}} {{vm.profile.lastname}}
             </h2>
             <h1>{{vm.profile.status}}</h1>
-            <small>{{vm.profile.birthday | ageFilter}} ans,
+            <small>{{vm.profile.birthday | ageFilter}} {{vm.profile.yo}},
             {{vm.profile.story}}</small>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-sm-3">
     </div>
-    <div class="col-md-3">
+    <div class="col-sm-3">
       <div class="row">
-        <div ng-repeat="social in vm.profile.socials track by $index">
-          <div class="col-xs-1" ng-if="social.name">
+        <div class="inline" ng-repeat="social in vm.profile.socials track by $index">
+          <span  ng-if="social.name">
             <a class="btn btn-white" ng-href="{{social.url}}" target="_blank"><i ng-bind-html="social.icon"></i></a>
-          </div>
+          </span>
         </div>
       </div>
       <small>{{vm.profile.socials.text}}</small>
@@ -44,7 +44,7 @@
     <div class="col-md-3">
       <div class="ibox" print-avoid-break>
         <div class="ibox-title">
-          <h3>Contact</h3>
+          <h3>{{vm.profile.contactTitle}}</h3>
         </div>
         <div class="ibox-content">
           <p>
@@ -62,7 +62,7 @@
 
       <div class="ibox" print-avoid-break>
         <div class="ibox-title">
-          <h3>Formations</h3>
+          <h3>{{vm.profile.formationTitle}}</h3>
         </div>
         <div class="ibox-content">
           <ul class="list-unstyled">
@@ -75,16 +75,16 @@
 
       <div class="ibox" print-avoid-break>
         <div class="ibox-title">
-          <h3>Langues</h3>
+          <h3>{{vm.profile.languageTitle}}</h3>
         </div>
         <div class="ibox-content">
           <div class="row">
             <div ng-repeat="language in vm.profile.languages track by $index">
-              <div class="col-xs-6">
+              <div class="col-lg-6 col-sm-12">
                 <h4>{{language.name}}</h4>
                 {{language.text}}
               </div>
-              <div class="col-xs-6">
+              <div class="col-lg-6 col-sm-12">
                 <ui-knob value="language.value" options="vm.options"></ui-knob>
               </div>
             </div>
@@ -96,10 +96,8 @@
         <div class="ibox-content">
           <div class="row">
             <div ng-repeat="skill in vm.profile.skills track by $index">
-              <div class="col-xs-6">
+              <div class="col-sm-6">
                 <h4>{{skill.name}}</h4>
-              </div>
-              <div class="col-xs-6">
                 <ui-knob value="skill.value" options="vm.options"></ui-knob>
               </div>
             </div>
@@ -127,7 +125,7 @@
             </p>
             <span class="vertical-date">
                 <small>
-                  de {{xp.startDate}} à {{xp.endDate}}
+                   {{vm.profile.from}} {{xp.startDate}} {{vm.profile.to}} {{xp.endDate}}
                 </small>
             </span>
           </div>
@@ -140,10 +138,8 @@
         <div class="ibox-content">
           <div class="row">
             <div ng-repeat="code in vm.profile.codes track by $index">
-              <div class="col-xs-2">
+              <div class="col-lg-4 col-sm-4 col-xs-6 text-center">
                 <h4>{{code.name}}</h4>
-              </div>
-              <div class="col-xs-4">
                 <ui-knob value="code.value" options="vm.options"></ui-knob>
               </div>
             </div>
@@ -153,7 +149,7 @@
 
       <div class="ibox" print-avoid-break>
         <div class="ibox-title">
-          <h3>Technos en vrac</h3>
+          <h3>{{vm.profile.technoTitle}}</h3>
           <p>{{vm.profile.codeText}}</p>
         </div>
         <div class="ibox-content">
@@ -167,7 +163,7 @@
 
       <div class="ibox" ng-if="vm.profile.slides" print-remove>
         <div class="ibox-title">
-          <h3>Dernières réalisations</h3>
+          <h3>{{vm.profile.lastProject}}</h3>
         </div>
         <div class="ibox-content">
           <div class="row">

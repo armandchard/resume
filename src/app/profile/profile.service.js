@@ -14,8 +14,9 @@
     };
     return service;
 
-    function getProfile(uid) {
-      return $firebaseObject(root.child('profile'));
+    function getProfile(lang) {
+      lang = lang || 'fr'
+      return $firebaseObject(root.child('profile/' + lang));
     }
 
   }

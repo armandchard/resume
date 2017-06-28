@@ -27,19 +27,20 @@
       'angularTinycon',
       'tmh.dynamicLocale',
       'slick',
+      'language-picker',
       // 'wu.masonry',
       // 'infinite-scroll',
 
       //////
 
       'mbc.core',
-      'mbc.auth',
+      // 'mbc.auth',
       // 'mbc.admin',
-      'mbc.layout',
+      // 'mbc.layout',
       // 'mbc.stock',
       // 'mbc.basket',
       // 'mbc.refill',
-      'mbc.profile',
+      'mbc.profile'
       // 'mbc.product',
       // 'mbc.project',
       // 'mbc.dashboard',

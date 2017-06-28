@@ -2,6 +2,7 @@
   "name": "logistic-mbc",
   "version": "0.0.0",
   "dependencies": {
+    "firebase-tools": "^3.9.1"
   },
   "scripts": {
     "test": "gulp test"

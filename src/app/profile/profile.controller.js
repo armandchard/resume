@@ -4,9 +4,9 @@
     .controller('ProfileController', profileController)
     .filter('ageFilter', ageFilter)
 
-  profileController.$inject = ['profileService'];
+  profileController.$inject = ['$state', '$stateParams', 'profileService'];
 
-  function profileController(profileService) {
+  function profileController($state, $stateParams, profileService) {
     var vm = this;
     vm.loading = true;
     var colors = ['#2196F3', '#FF9800', '#FF5722', '#689F38', '#E91E63', '#F44336'];
@@ -24,7 +24,7 @@
     vm.interval = 3000;
     vm.activeSlide = 0;
 
-    profileService.getProfile()
+    profileService.getProfile($stateParams.lang)
       .$loaded(function (data) {
         vm.profile = data;
         vm.loading = false;
@@ -50,15 +50,18 @@
       }
     }
 
+    vm.changeLanguage = function (lang){
+      $state.go('profile', {lang: lang});
+    }
+
   }
 
   function ageFilter() {
-    return function (birthday) {
-      var birthday = new Date(birthday);
+    return function (bday) {
+      var birthday = new Date(bday);
       var today = new Date();
       var age = ((today - birthday) / (31557600000));
-      var age = Math.floor(age);
-      return age;
+      return Math.floor(age);
     }
   }
 

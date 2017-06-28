@@ -9,7 +9,7 @@
   function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('profile', {
-        url: '/',
+        url: '/:lang',
         templateUrl: 'app/profile/profile.html',
         controller: 'ProfileController',
         controllerAs: 'vm',
