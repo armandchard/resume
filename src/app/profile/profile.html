@@ -26,21 +26,27 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-3">
-    </div>
-    <div class="col-sm-3">
+    <div class="col-sm-3 text-center">
       <div class="row">
         <div class="inline" ng-repeat="social in vm.profile.socials track by $index">
-          <span  ng-if="social.name">
+          <span ng-if="social.name">
             <a class="btn btn-white" ng-href="{{social.url}}" target="_blank"><i ng-bind-html="social.icon"></i></a>
           </span>
         </div>
       </div>
       <small>{{vm.profile.socials.text}}</small>
     </div>
+    <div class="col-sm-3 text-center">
+      <div class="row">
+        <div class="inline">
+          <a class="btn" style="width:10%" ng-click="vm.changeLanguage('fr')" target="_blank"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARMAAAC3CAMAAAAGjUrGAAAAFVBMVEXtKTn///8AI5UACpClqs7xbHTtIDJu3/sSAAAA/0lEQVR4nO3QBw0AIAwAsHGGf8kzASRLWgmNedva45k88YMTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJ06cOHHixIkTJw1PCklywQMNA80VAAAAAElFTkSuQmCC"></a>
+          <a class="btn" style="width:10%" ng-click="vm.changeLanguage('en')" target="_blank"><img src="data:image/png;base64,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"></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="row">
 
+  <div class="row">
     <div class="col-md-3">
       <div class="ibox" print-avoid-break>
         <div class="ibox-title">
@@ -78,13 +84,13 @@
           <h3>{{vm.profile.languageTitle}}</h3>
         </div>
         <div class="ibox-content">
-          <div class="row">
-            <div ng-repeat="language in vm.profile.languages track by $index">
-              <div class="col-lg-6 col-sm-12">
+          <div class="row text-center">
+            <div class="row" ng-repeat="language in vm.profile.languages track by $index">
+              <div class="col-xs-6">
                 <h4>{{language.name}}</h4>
                 {{language.text}}
               </div>
-              <div class="col-lg-6 col-sm-12">
+              <div class="col-xs-6">
                 <ui-knob value="language.value" options="vm.options"></ui-knob>
               </div>
             </div>
@@ -96,7 +102,7 @@
         <div class="ibox-content">
           <div class="row">
             <div ng-repeat="skill in vm.profile.skills track by $index">
-              <div class="col-sm-6">
+              <div class="col-xs-6 text-center">
                 <h4>{{skill.name}}</h4>
                 <ui-knob value="skill.value" options="vm.options"></ui-knob>
               </div>
@@ -170,12 +176,12 @@
             <uib-carousel interval="vm.interval" active="vm.activeSlide">
               <uib-slide ng-repeat="slide in vm.profile.slides" index="$index">
                 <img ng-src="{{slide.imageUrl}}" style="margin:auto;">
-</uib-slide>
-</uib-carousel>
-</div>
-</div>
-</div>
-</div>
+              </uib-slide>
+            </uib-carousel>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
+  </div>
 </div>
