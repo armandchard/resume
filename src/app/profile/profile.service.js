@@ -8,7 +8,6 @@
   profileService.$inject = ['$firebaseObject'];
 
   function profileService($firebaseObject) {
-    var root = firebase.database().ref();
     var service = {
       getProfile: getProfile
     };
@@ -16,7 +15,7 @@
 
     function getProfile(lang) {
       lang = lang || 'fr'
-      return $firebaseObject(root.child('profile/' + lang));
+      return $firebaseObject(firebase.database().ref('profile/' + lang));
     }
 
   }
